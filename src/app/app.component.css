@@ -1,0 +1,28 @@
+.main {
+    width: 50vw;
+    height: 100% !important;
+
+    /* min-height: 60dvh; */
+    margin: auto;
+}
+
+
+.sidebar_drawer-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    flex: auto;
+    flex-grow: 1;
+}
+
+.sidebar_drawer {
+    border: none;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .main {
+        width: 80vw;
+    }
+}

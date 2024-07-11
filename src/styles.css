@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--body-bg);
+}
+
+.root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+:root {
+    --body-bg: #fff;
+    --btn-bg: #fff;
+    --body-secondary: #f6f9fb;
+    --text-color: #394955;
+    --block--light--bg: rgba(0, 0, 0, .05);
+    --block-bg: #fff;
+    --secondary-text-color: rgba(36, 36, 36, .6);
+    --border-color: hsla(0, 0%, 100%, .3);
+    --sport-color: #26ce69;
+    --scrolled-input-bg: #f3f3f3;
+    --scrolled-input-bg-mobile: #e8e8e8;
+    --menu-active-gradient: linear-gradient(270deg, rgba(36, 36, 36, 0), #242424);
+    --arrow-hover-bg: #e8e8e8;
+    --reg-switch-bg: rgba(36, 36, 36, .1);
+    --reg-switch-btn-active: #242424;
+    --field-border: rgba(36, 36, 36, .1);
+    --field-label-color: rgba(36, 36, 36, .4);
+    --reg-btn-bg: #242424;
+    --blockquote-bg: rgba(210, 223, 235, .2);
+    --avatar-border: hsla(0, 0%, 100%, .2);
+    --avatar-bg: hsla(0, 0%, 100%, .1);
+    --avatar-profile-bg: #fff;
+    --avatar-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    --profile-active-gradient: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
+    --profile-mobile-bg: rgba(36, 36, 36, .1);
+    --profile-mobile-menu-bg: #e8e8e8;
+    --skeleton-color: #dbdbdb !important;
+    --block-skeleton-bg: #e8e8e8 !important;
+    --story-length: 0;
+    --footer: #001e28;
+}

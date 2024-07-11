@@ -1,0 +1,26 @@
+.logo {
+    font-size: clamp(14px, 4vw, 2rem);
+    font-weight: 900;
+    color: var(--sport-color);
+    cursor: pointer;
+    transition: 0.125s ease-in-out;
+}
+
+.logo span {
+    filter: brightness(0) opacity(0.85);
+}
+
+.logo.light span {
+    filter: brightness(30) opacity(0.85);
+}
+
+.logo:hover {
+    filter: opacity(0.85);
+}
+
+
+@media screen and (max-width: 355px) {
+    .logo {
+        display: none;
+    }
+}

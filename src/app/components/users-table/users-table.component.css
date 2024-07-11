@@ -1,0 +1,118 @@
+.container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.container .soft_shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    background: black;
+    filter: blur(5px) opacity(0.25);
+    z-index: +10000;
+}
+
+.container .spinner {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border-left: 4px dashed rgba(0, 0, 255, 0.25);
+    border-top: 4px dashed rgba(0, 0, 255, 1);
+    border-right: 4px dashed rgba(0, 0, 255, 1);
+    border-bottom: 4px dashed rgba(0, 0, 255, 0);
+    border-radius: 50% 50% 50% 50%;
+    z-index: 100000;
+    animation: spinner 0.75s infinite linear;
+}
+
+.custom_table {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+.custom_table table {
+    width: 100%;
+}
+
+.custom_table::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    border-radius: 1rem;
+    background-color: #dfdfdf;
+}
+
+.custom_table::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 8px;
+    border-radius: 1rem;
+    background-color: #959595;
+}
+
+.custom_table .see_post_btn {
+    position: relative;
+
+    text-decoration: none;
+    color: white;
+    background: rgb(16, 16, 205);
+    padding: 0.5rem 1rem;
+    border-radius: 0.235rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    outline: 3px solid transparent;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.custom_table .see_post_btn:hover {
+    filter: brightness(1.25);
+}
+
+.custom_table .see_post_btn:active {
+    transform: scale3d(0.975, 0.975, 0.975);
+}
+
+.custom_table .see_post_btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 0.235rem;
+    transform-origin: center;
+    background: rgba(0, 0, 255, 0.35);
+    z-index: -1;
+    transition: 0.125s ease-out;
+}
+
+.custom_table .see_post_btn:hover::before {
+    transform: scale3d(1.085, 1.185, 1.125);
+
+}
+
+.custom_table .see_post_btn a {
+    text-decoration: none;
+    color: inherit
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,11 @@
+<header class="header">
+  <button (click)="onToggleSidebar()" class="toggle_sidebar_btn">
+    <mat-icon class="menu_icon">menu</mat-icon>
+  </button>
+  <app-logo-btn></app-logo-btn>
+  <div class="current_time">
+    <span id="time">
+      {{ currentDateTime | date : "dd.MM.YYYY hh:mm:ss" }}
+    </span>
+  </div>
+</header>

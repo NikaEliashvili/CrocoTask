@@ -1,10 +1,16 @@
 <div class="container">
-  <div class="custom_table">
+  <div class="users_table">
     <table mat-table [dataSource]="users" class="mat-elevation-z8">
       <!-- firstName Column -->
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <!-- lastName Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
       </ng-container>
 
       <!-- Phone Column -->
@@ -25,9 +31,9 @@
         <td mat-cell *matCellDef="let element">{{ element.companyName }}</td>
       </ng-container>
 
-      <!-- companyName Column -->
-      <ng-container matColumnDef="posts_btn">
-        <th mat-header-cell *matHeaderCellDef>Posts</th>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
           <div class="see_post_btn">
             <a [routerLink]="'/posts/' + element.id">Posts</a>
@@ -39,7 +45,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
-  <div class="spinner" *ngIf="isLoading"></div>
+  <app-spinner [loading]="isLoading"></app-spinner>
 
   <div class="soft_shadow"></div>
 </div>

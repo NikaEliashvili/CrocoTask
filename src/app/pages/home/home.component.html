@@ -1,6 +1,15 @@
 <div class="home">
-  <h3 class="page_title">Home</h3>
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search by firstname, lastname or email"
+    #search
+    (input)="handleSearch(search.value)"
+  />
   <div class="users_table">
-    <app-users-table [isLoading]="loading" [users]="users"></app-users-table>
+    <app-users-table
+      [isLoading]="loading"
+      [users]="search.value.length > 0 ? filteredData : users"
+    ></app-users-table>
   </div>
 </div>

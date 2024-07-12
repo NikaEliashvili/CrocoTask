@@ -2,9 +2,32 @@
     padding: 1rem 1rem 2rem;
 }
 
-.home .page_title {
-    color: rgba(0, 0, 0, 0.75);
-    font-size: 1.25rem;
-    margin-top: 1rem;
-    background-color: rgba;
+.home .search-input {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.075);
+    background: none;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.35rem;
+    outline: 1px solid rgba(14, 154, 96, 0);
+    font-family: inherit;
+    font-size: clamp(14px, 3vw, 1.25rem);
+    font-weight: 600;
+    color: var(--text-color);
+    transition: 0.125s ease-in-out;
+}
+
+.home .search-input:focus {
+    border-color: rgba(14, 154, 96, 0.5);
+    outline-color: rgba(14, 154, 96, 0.5);
+
+}
+
+.home .search-input:hover {
+    border-color: rgba(0, 0, 0, 0.235);
+}
+
+.home .search-input::placeholder {
+    font-weight: 300;
+    filter: opacity(0.75);
 }

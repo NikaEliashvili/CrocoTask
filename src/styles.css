@@ -31,6 +31,20 @@ p {
     margin: 0;
 }
 
+button:focus,
+a:focus {
+    outline: none;
+}
+
+
+/*Make Table Header Sticky!  */
+.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row {
+    position: sticky;
+    top: 0;
+    z-index: +10000;
+}
+
+
 :root {
     --body-bg: #fff;
     --btn-bg: #fff;
@@ -62,4 +76,5 @@ p {
     --block-skeleton-bg: #e8e8e8 !important;
     --story-length: 0;
     --footer: #001e28;
+    --post-card-bg: rgba(38, 206, 105, 0.075);
 }

@@ -1,0 +1,16 @@
+<div class="post-cards">
+  @if(isLoadingUserName){
+
+  <h2 class="user_name-skeleton"></h2>
+  }@else {
+  <h2 class="user_name">{{ userName }}</h2>
+  } @if (isLoadingPosts) { @for (post of postsSkeleton; track $index) {
+  <div class="post_skeleton">
+    <h2 class="post_title"></h2>
+    <p class="post_body"></p>
+  </div>
+  } }@else { @for (post of posts; track $index) {
+
+  <app-post-card [post]="post"></app-post-card>
+  } }
+</div>

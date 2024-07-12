@@ -1,0 +1,23 @@
+.post {
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--post-card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 3px solid rgba(1, 35, 24, 0.05);
+    margin-bottom: 1.25rem;
+}
+
+.post .post_title {
+    font-size: clamp(12px, 3vw, 1.5rem);
+    text-transform: capitalize;
+    color: var(--text-color);
+    filter: brightness(0.75);
+    font-weight: 700;
+}
+
+.post .post_body {
+    font-size: clamp(10px, 2.75vw, 1rem);
+    color: var(--text-color);
+}

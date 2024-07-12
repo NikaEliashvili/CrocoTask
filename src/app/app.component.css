@@ -1,8 +1,6 @@
 .main {
-    width: 50vw;
+    width: 50%;
     height: 100% !important;
-
-    /* min-height: 60dvh; */
     margin: auto;
 }
 
@@ -13,16 +11,52 @@
     margin: auto;
     flex: auto;
     flex-grow: 1;
+    display: flex;
 }
 
 .sidebar_drawer {
     border: none;
+    position: relative;
+    width: 30% !important;
+    max-width: 110px;
+    overflow: hidden !important;
 }
 
+.content_drawer {
+    width: 100%;
+    flex-grow: 1;
+    margin: 0 !important;
+    /* margin: auto; */
+}
+
+.spinner {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border-left: 4px dashed rgba(0, 0, 255, 0.25);
+    border-top: 4px dashed rgba(0, 0, 255, 1);
+    border-right: 4px dashed rgba(0, 0, 255, 1);
+    border-bottom: 4px dashed rgba(0, 0, 255, 0);
+    border-radius: 50% 50% 50% 50%;
+    z-index: 100000;
+    animation: spinner 0.75s infinite linear;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 
 @media screen and (max-width: 1024px) {
     .main {
-        width: 80vw;
+        width: 80%;
     }
 }

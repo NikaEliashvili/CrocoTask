@@ -1,0 +1,20 @@
+<!-- post-detail-dialog.component.html -->
+@if(isLoading && !post){
+
+<div class="post_dialog_skeleton">
+  <div class="loading_spinner">
+    <app-spinner [loading]="true"></app-spinner>
+  </div>
+</div>
+
+}@else {
+<div class="post_dialog">
+  <h1 mat-dialog-title class="post_title">{{ post.title }}</h1>
+  <div mat-dialog-content class="post_body">
+    <p>{{ post.body }}</p>
+  </div>
+  <div mat-dialog-actions class="actions">
+    <button mat-button mat-dialog-close class="close_btn">Close</button>
+  </div>
+</div>
+}

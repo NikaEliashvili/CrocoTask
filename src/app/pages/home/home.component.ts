@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomTableComponent } from '../../components/users-table/users-table.component';
 import { UsersService } from '../../shared/services/users-service/users.service';
-import UserInterface from '../../shared/interfaces/user';
 import { CommonModule } from '@angular/common';
-import tableUser from '../../shared/interfaces/table-user';
-import { debounceTime } from 'rxjs';
+import { tableUser } from '../../shared/interfaces/table-user';
+import { User } from '../../shared/interfaces/user';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +27,9 @@ export class HomeComponent implements OnInit {
   fetchUsers() {
     this.loading = true;
     this.usersService.getUsers().subscribe({
-      next: (users: UserInterface[]) => {
+      next: (users: User[]) => {
         setTimeout(() => {
-          const usersArray = users.map((user: UserInterface) => ({
+          const usersArray = users.map((user: User) => ({
             id: user.id,
             firstName: user.name.split(' ')?.[0] || '',
             lastName: user.name.split(' ')?.[1] || '',
@@ -40,7 +39,7 @@ export class HomeComponent implements OnInit {
           }));
           this.users = usersArray;
           this.filteredData = usersArray;
-        }, 1000);
+        }, 700);
       },
       error: (err) => {
         console.log(err);
@@ -48,7 +47,7 @@ export class HomeComponent implements OnInit {
       complete: () => {
         setTimeout(() => {
           this.loading = false;
-        }, 1000);
+        }, 700);
       },
     });
   }

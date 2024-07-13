@@ -20,4 +20,17 @@
 .post .post_body {
     font-size: clamp(10px, 2.75vw, 1rem);
     color: var(--text-color);
+    filter: opacity(0.85);
+}
+
+.post .author {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin-left: auto;
+    font-size: clamp(10px, 2.5vw, 0.85rem);
+    color: var(--text-color);
+    filter: brightness(0.75) opacity(0.85);
+    font-weight: 600;
 }

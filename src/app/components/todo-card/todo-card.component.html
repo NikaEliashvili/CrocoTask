@@ -1,0 +1,12 @@
+<div class="todo_card" [ngClass]="todo.completed ? 'completed' : ''">
+  <div class="container">
+    <h2 class="todo_title">{{ todo.title }}</h2>
+    <mat-checkbox
+      class="completed-checkbox"
+      [checked]="todo.completed"
+      color="accent"
+      disabled="true"
+    ></mat-checkbox>
+  </div>
+  <p class="author">-{{ userName }}</p>
+</div>

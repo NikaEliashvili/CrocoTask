@@ -11,7 +11,7 @@
     border-radius: 0.35rem;
     outline: 1px solid rgba(14, 154, 96, 0);
     font-family: inherit;
-    font-size: clamp(14px, 3vw, 1.25rem);
+    font-size: clamp(14px, 3vw, 1rem);
     font-weight: 600;
     color: var(--text-color);
     transition: 0.125s ease-in-out;
@@ -23,7 +23,7 @@
 
 }
 
-.home .search-input:hover {
+.home .search-input:hover:not(:focus) {
     border-color: rgba(0, 0, 0, 0.235);
 }
 

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../shared/services/posts/posts.service';
-import Post from '../../shared/interfaces/post';
 import { CommonModule } from '@angular/common';
 import { UsersService } from '../../shared/services/users-service/users.service';
-import UserInterface from '../../shared/interfaces/user';
+import { User } from '../../shared/interfaces/user';
+import { Post } from '../../shared/interfaces/post';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-user-posts',
@@ -48,7 +47,7 @@ export class UserPostsComponent implements OnInit {
       next: (posts: Post[]) => {
         setTimeout(() => {
           this.posts = posts;
-        }, 1000);
+        }, 700);
       },
       error: (error) => {
         console.log(error);
@@ -56,7 +55,7 @@ export class UserPostsComponent implements OnInit {
       complete: () => {
         setTimeout(() => {
           this.isLoadingPosts = false;
-        }, 1000);
+        }, 700);
       },
     });
   };
@@ -64,11 +63,10 @@ export class UserPostsComponent implements OnInit {
   getUserById = (userId: string) => {
     this.isLoadingUserName = true;
     this.usersService.getUserById(userId).subscribe({
-      next: (user: UserInterface) => {
-        console.log({ user });
+      next: (user: User) => {
         setTimeout(() => {
           this.userName = user.name;
-        }, 1000);
+        }, 700);
       },
       error: (error) => {
         console.log(error);
@@ -76,7 +74,7 @@ export class UserPostsComponent implements OnInit {
       complete: () => {
         setTimeout(() => {
           this.isLoadingUserName = false;
-        }, 1000);
+        }, 700);
       },
     });
   };

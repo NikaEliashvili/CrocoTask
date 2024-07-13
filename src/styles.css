@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
 *,
 *::before,
 *::after {
@@ -10,14 +13,13 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
     background: var(--body-bg);
 }
 
 .root {
+    position: relative;
     min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
 }
 
 
@@ -34,6 +36,39 @@ p {
 button:focus,
 a:focus {
     outline: none;
+}
+
+
+
+/* General Table Styless */
+
+:ng-deep .mat-mdc-table {
+    background: red !important;
+}
+
+table * {
+    font-family: inherit !important;
+}
+
+table thead * {
+    font-weight: 600 !important;
+    color: var(--text-color) !important;
+    font-size: 1rem;
+    text-wrap: nowrap;
+}
+
+table tbody tr {
+    transition: 0.175s ease-in-out !important;
+}
+
+table tbody tr:hover {
+    filter: brightness(0.95) !important;
+}
+
+table tbody tr * {
+    font-size: 0.95rem;
+    text-wrap: nowrap;
+
 }
 
 

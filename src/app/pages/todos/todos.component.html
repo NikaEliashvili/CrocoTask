@@ -1,0 +1,28 @@
+<div class="todos">
+  <form [formGroup]="filtersForm" class="filters_form">
+    <mat-radio-group
+      formControlName="isCompleted"
+      class="radio-group"
+      aria-label="Select an option"
+      #filters
+      (change)="handleFilters()"
+    >
+      <mat-radio-button class="radio-btn" color="primary" [value]="0"
+        >Uncompleted</mat-radio-button
+      >
+      <mat-radio-button class="radio-btn" color="primary" [value]="1"
+        >Completed</mat-radio-button
+      >
+      <mat-radio-button class="radio-btn" color="primary" [value]="-1"
+        >All</mat-radio-button
+      >
+    </mat-radio-group>
+  </form>
+
+  <div class="todos_table">
+    <app-todos-table
+      [todos]="filteredTodos"
+      [isLoading]="isLoading"
+    ></app-todos-table>
+  </div>
+</div>

@@ -8,7 +8,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import Post from '../../shared/interfaces/post';
+import { Post } from '../../shared/interfaces/post';
 import { PostsService } from '../../shared/services/posts/posts.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { MatButton } from '@angular/material/button';
@@ -44,7 +44,7 @@ export class PostDetailDialogComponent implements OnInit {
       next: (post: Post) => {
         setTimeout(() => {
           this.post = post;
-        }, 1000);
+        }, 700);
       },
       error: (error) => {
         console.log(error);
@@ -52,7 +52,7 @@ export class PostDetailDialogComponent implements OnInit {
       complete: () => {
         setTimeout(() => {
           this.isLoading = false;
-        }, 1000);
+        }, 700);
       },
     });
   };

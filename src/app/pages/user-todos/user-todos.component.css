@@ -1,0 +1,103 @@
+.todo_cards-page {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto 2rem;
+}
+
+
+.todo_cards-page .page_header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+
+.todo_cards-page .page_header .page_title {
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    transform: translate(-50%, 50%) rotate(25deg);
+    background: rgb(64, 160, 130);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+}
+
+
+.todo_cards-page .page_header .user_name {
+    font-size: clamp(0.875rem, 5vw, 2rem);
+    color: var(--text-color);
+}
+
+.todo_cards-page .user_name-skeleton {
+    height: clamp(1rem, 5vw, 2rem);
+    width: 70%;
+    margin-top: 1rem;
+    background: rgba(2, 29, 13, 0.075);
+    filter: brightness(0) opacity(0.35);
+    border-radius: 0.25rem;
+    animation: todo_skeleton 1s linear infinite;
+    margin-bottom: 2rem;
+
+}
+
+.todo_cards-page .todo_skeleton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.0175);
+    border: 3px solid rgba(1, 35, 24, 0.035);
+    border-radius: 0.5rem;
+    padding: 1rem 1rem 3rem;
+    margin-bottom: 1.25rem;
+}
+
+.todo_cards-page .todo_skeleton .todo_title {
+    width: 100%;
+    height: 50px;
+    background: rgba(2, 29, 13, 0.075);
+    border-radius: 0.25rem;
+    animation: todo_skeleton 1s linear infinite;
+}
+
+
+.todo_cards-page .todo_skeleton .todo_checkbox {
+    width: 30px;
+    height: 30px;
+    background: rgba(2, 29, 13, 0.075);
+    border-radius: 0.25rem;
+    animation: todo_skeleton 1s linear infinite;
+}
+
+.todo_cards-page .todo_skeleton .author {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: block;
+    width: 75px;
+    height: 15px;
+    background: rgba(2, 29, 13, 0.075);
+    border-radius: 0.25rem;
+    animation: todo_skeleton 1s linear infinite;
+}
+
+
+@keyframes todo_skeleton {
+    0% {
+        filter: opacity(0.25);
+    }
+
+    50% {
+        filter: opacity(1);
+    }
+
+    100% {
+        filter: opacity(0.25);
+    }
+}

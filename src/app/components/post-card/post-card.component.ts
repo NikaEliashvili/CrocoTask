@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import Post from '../../shared/interfaces/post';
+import { Post } from '../../shared/interfaces/post';
 
 @Component({
   selector: 'app-post-card',
@@ -11,5 +11,6 @@ import Post from '../../shared/interfaces/post';
 })
 export class PostCardComponent {
   @Input() post: Post;
+  @Input() author: string;
   constructor() {}
 }

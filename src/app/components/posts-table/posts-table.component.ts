@@ -4,7 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { TablePost } from '../../shared/interfaces/table-post';
 import { MatDialog } from '@angular/material/dialog';
-import Post from '../../shared/interfaces/post';
+import { Post } from '../../shared/interfaces/post';
 import { PostDetailDialogComponent } from '../post-detail-dialog/post-detail-dialog.component';
 import { SpinnerComponent } from '../spinner/spinner.component';
 

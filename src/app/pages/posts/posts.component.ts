@@ -4,8 +4,8 @@ import { TablePost } from '../../shared/interfaces/table-post';
 import { forkJoin } from 'rxjs';
 import { PostsService } from '../../shared/services/posts/posts.service';
 import { UsersService } from '../../shared/services/users-service/users.service';
-import Post from '../../shared/interfaces/post';
-import User from '../../shared/interfaces/user';
+import { Post } from '../../shared/interfaces/post';
+import { User } from '../../shared/interfaces/user';
 
 @Component({
   selector: 'app-posts',
@@ -36,7 +36,7 @@ export class PostsComponent implements OnInit {
             userName: users.find((user) => user.id === post.userId)?.name || '',
             postTitle: post.title,
           }));
-        }, 1000);
+        }, 700);
       },
       error: (error) => {
         console.log(error);
@@ -44,7 +44,7 @@ export class PostsComponent implements OnInit {
       complete: () => {
         setTimeout(() => {
           this.isLoading = false;
-        }, 1000);
+        }, 700);
       },
     });
   }

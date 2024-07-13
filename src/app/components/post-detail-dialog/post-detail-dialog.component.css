@@ -4,6 +4,7 @@
     min-width: 200px;
     min-height: 200px;
     max-height: 70dvh;
+    max-width: 50vw;
     padding: 2rem 1rem;
     overflow: auto;
 }
@@ -52,8 +53,14 @@
 .post_dialog_skeleton .loading_spinner {
     width: 100%;
     height: 100%;
-    filter: opacity(0.175) saturate(0) brightness(0);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .post_dialog {
+        max-width: 80vw;
+    }
 }

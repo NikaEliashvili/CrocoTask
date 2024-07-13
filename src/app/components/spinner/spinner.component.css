@@ -4,10 +4,11 @@
     margin: auto;
     width: 40px;
     height: 40px;
-    border-left: 4px dashed rgba(0, 0, 255, 0.25);
-    border-top: 4px dashed rgba(0, 0, 255, 1);
-    border-right: 4px dashed rgba(0, 0, 255, 1);
-    border-bottom: 4px dashed rgba(0, 0, 255, 0);
+    filter: opacity(0.35);
+    border-left: 4px dashed rgba(0, 0, 0, 0.35);
+    border-top: 4px dashed rgba(0, 0, 0, 0.55);
+    border-right: 4px dashed rgba(0, 0, 0, 0.55);
+    border-bottom: 4px dashed rgba(0, 0, 0, 0);
     border-radius: 50% 50% 50% 50%;
     z-index: 100000;
     animation: spinner 0.75s infinite linear;

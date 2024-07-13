@@ -9,7 +9,7 @@
 
       <!-- lastName Column -->
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
         <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
       </ng-container>
 
@@ -35,8 +35,19 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <div class="see_post_btn">
-            <a [routerLink]="'/posts/' + element.id">Posts</a>
+          <div class="td-actions">
+            <div
+              class="see_post_btn"
+              [title]="'See Posts of ' + element.firstName"
+            >
+              <a [routerLink]="'/users/' + element.id + '/posts/'">Posts</a>
+            </div>
+            <div
+              class="see_todos_btn"
+              [title]="'See Todos of ' + element.firstName"
+            >
+              <a [routerLink]="'/users/' + element.id + '/todos/'">Todos</a>
+            </div>
           </div>
         </td>
       </ng-container>

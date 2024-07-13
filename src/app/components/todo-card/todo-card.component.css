@@ -1,0 +1,64 @@
+.todo_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.0175);
+    border: 3px solid rgba(1, 35, 24, 0.035);
+    margin-bottom: 1.25rem;
+}
+
+.todo_card.completed {
+    border-color: rgba(38, 206, 105, 0.45);
+    background: rgba(38, 206, 105, 0.075);
+}
+
+.todo_card .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.todo_card .container .todo_title {
+    font-size: clamp(12px, 3vw, 1.25rem);
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.todo_card.completed .container .todo_title {
+    color: rgb(18, 203, 92);
+    font-weight: 500;
+}
+
+.completed-checkbox {
+    margin-left: auto;
+}
+
+
+.completed-checkbox ::ng-deep .mdc-checkbox .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,
+.completed-checkbox ::ng-deep .mdc-checkbox .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,
+.completed-checkbox ::ng-deep .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background {
+    background: var(--sport-color) !important;
+    border-color: var(--sport-color) !important;
+}
+
+.todo_card .author {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: clamp(12px, 2vw, 1rem);
+    color: var(--text-color);
+    filter: opacity(0.75);
+}
+
+.todo_card.completed .author {
+    color: var(--sport-color);
+    filter: brightness(0.75) opacity(0.5);
+}

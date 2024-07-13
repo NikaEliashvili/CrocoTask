@@ -10,7 +10,7 @@
       <!-- Post Title Column -->
       <ng-container matColumnDef="postTitle">
         <th mat-header-cell *matHeaderCellDef>Post Title</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let element" [title]="element.postTitle">
           {{
             element.postTitle.length > 20
               ? element.postTitle?.slice(0, 20)?.concat("...")

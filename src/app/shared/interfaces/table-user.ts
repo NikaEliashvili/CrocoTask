@@ -1,4 +1,4 @@
-export default interface tableUser {
+export interface tableUser {
   id: number;
   firstName: string;
   lastName: string;

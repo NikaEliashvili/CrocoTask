@@ -1,0 +1,20 @@
+<div class="todo_cards-page">
+  @if(isLoadingUserName){
+
+  <h2 class="user_name-skeleton"></h2>
+  }@else {
+  <div class="page_header">
+    <h2 class="user_name">{{ userName }}</h2>
+    <span class="page_title">TODOs</span>
+  </div>
+  } @if (isLoadingTodos) { @for (todo of todosSkeleton; track $index) {
+  <div class="todo_skeleton">
+    <h2 class="todo_title"></h2>
+    <div class="todo_checkbox"></div>
+    <div class="author"></div>
+  </div>
+  } }@else { @for (todo of todos; track $index) {
+
+  <app-todo-card [todo]="todo" [userName]="userName"></app-todo-card>
+  } }
+</div>

@@ -3,7 +3,6 @@
     width: 100%;
     height: 100%;
     padding: 1rem 0;
-    background: rgba(38, 206, 105, 0.075);
     background: var(--body-secondary);
     display: flex;
     flex-direction: column;
@@ -29,7 +28,6 @@
 .sidebar .nav_link.activeLink,
 .sidebar .nav_link:hover {
     filter: opacity(1);
-    /* color: rgb(7, 140, 89); */
 }
 
 .sidebar .nav_link.activeLink::before,

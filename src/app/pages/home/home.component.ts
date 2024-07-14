@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CustomTableComponent } from '../../components/users-table/users-table.component';
 import { UsersService } from '../../shared/services/users-service/users.service';
 import { CommonModule } from '@angular/common';
 import { tableUser } from '../../shared/interfaces/table-user';
 import { User } from '../../shared/interfaces/user';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,21 +13,26 @@ import { User } from '../../shared/interfaces/user';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   users: tableUser[] = [];
+  usersSubscribe: Subscription;
   filteredData: tableUser[] = [];
   loading: boolean = false;
 
-  constructor(private usersService: UsersService) {
-    this.fetchUsers();
-  }
+  constructor(private usersService: UsersService) {}
+
   ngOnInit(): void {
     this.fetchUsers();
   }
 
+  ngOnDestroy(): void {
+    // clean subscription from "usersSubscribe"
+    this.usersSubscribe.unsubscribe();
+  }
+
   fetchUsers() {
     this.loading = true;
-    this.usersService.getUsers().subscribe({
+    this.usersSubscribe = this.usersService.getUsers().subscribe({
       next: (users: User[]) => {
         setTimeout(() => {
           const usersArray = users.map((user: User) => ({

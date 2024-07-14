@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { SpinnerComponent } from '../../components/spinner/spinner.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -7,7 +7,7 @@ import { TodosTableComponent } from '../../components/todos-table/todos-table.co
 import { TodosService } from '../../shared/services/todos/todos.service';
 import { UsersService } from '../../shared/services/users-service/users.service';
 import { Todo } from '../../shared/interfaces/todo';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { User } from '../../shared/interfaces/user';
 import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material/radio';
@@ -33,8 +33,9 @@ import {
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, OnDestroy {
   todos: TableTodo[];
+  todosSubscribe: Subscription;
   filteredTodos: TableTodo[];
   isLoading: boolean = false;
   isFiltering: boolean = false;
@@ -48,6 +49,10 @@ export class TodosComponent implements OnInit {
     this.getTodos();
   }
 
+  ngOnDestroy(): void {
+    this.todosSubscribe.unsubscribe();
+  }
+
   filtersForm = new FormGroup({
     isCompleted: new FormControl(-1),
   });
@@ -56,7 +61,7 @@ export class TodosComponent implements OnInit {
   getTodos = () => {
     this.isLoading = true;
 
-    forkJoin([
+    this.todosSubscribe = forkJoin([
       this.todosService.getTodos(),
       this.usersService.getUsers(),
     ]).subscribe({

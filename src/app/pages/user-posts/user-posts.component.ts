@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../shared/services/posts/posts.service';
 import { CommonModule } from '@angular/common';
@@ -6,6 +6,7 @@ import { UsersService } from '../../shared/services/users-service/users.service'
 import { User } from '../../shared/interfaces/user';
 import { Post } from '../../shared/interfaces/post';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-posts',
@@ -14,12 +15,15 @@ import { PostCardComponent } from '../../components/post-card/post-card.componen
   templateUrl: './user-posts.component.html',
   styleUrl: './user-posts.component.css',
 })
-export class UserPostsComponent implements OnInit {
+export class UserPostsComponent implements OnInit, OnDestroy {
   userId: string;
   isLoadingPosts: boolean = false;
   isLoadingUserName: boolean = false;
   posts: Post[] = [];
   userName: string = '';
+  postsSubscribe: Subscription;
+  userSubscribe: Subscription;
+  userIdSubscribe: Subscription;
   postsSkeleton: number[] = new Array(10).fill(0);
 
   constructor(
@@ -29,7 +33,7 @@ export class UserPostsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(({ id }) => {
+    this.userIdSubscribe = this.route.params.subscribe(({ id }) => {
       const userIdParam = id;
       if (userIdParam !== null && userIdParam !== undefined) {
         this.userId = userIdParam;
@@ -41,9 +45,15 @@ export class UserPostsComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    this.userIdSubscribe.unsubscribe();
+    this.postsSubscribe.unsubscribe();
+    this.userSubscribe.unsubscribe();
+  }
+
   getPostsById = (userId: string) => {
     this.isLoadingPosts = true;
-    this.postsService.getPostsByUserId(userId).subscribe({
+    this.postsSubscribe = this.postsService.getPostsByUserId(userId).subscribe({
       next: (posts: Post[]) => {
         setTimeout(() => {
           this.posts = posts;
@@ -62,7 +72,7 @@ export class UserPostsComponent implements OnInit {
 
   getUserById = (userId: string) => {
     this.isLoadingUserName = true;
-    this.usersService.getUserById(userId).subscribe({
+    this.userSubscribe = this.usersService.getUserById(userId).subscribe({
       next: (user: User) => {
         setTimeout(() => {
           this.userName = user.name;

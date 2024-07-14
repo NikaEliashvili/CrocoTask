@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostsTableComponent } from '../../components/posts-table/posts-table.component';
 import { TablePost } from '../../shared/interfaces/table-post';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { PostsService } from '../../shared/services/posts/posts.service';
 import { UsersService } from '../../shared/services/users-service/users.service';
 import { Post } from '../../shared/interfaces/post';
@@ -14,8 +14,9 @@ import { User } from '../../shared/interfaces/user';
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.css',
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnDestroy {
   posts: TablePost[];
+  postsSubcribe: Subscription;
   isLoading: boolean = false;
 
   constructor(
@@ -24,8 +25,16 @@ export class PostsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getPostsByUserNames();
+  }
+
+  ngOnDestroy(): void {
+    this.postsSubcribe.unsubscribe();
+  }
+
+  getPostsByUserNames = () => {
     this.isLoading = true;
-    forkJoin([
+    this.postsSubcribe = forkJoin([
       this.postsService.getPosts(),
       this.usersService.getUsers(),
     ]).subscribe({
@@ -47,5 +56,5 @@ export class PostsComponent implements OnInit {
         }, 700);
       },
     });
-  }
+  };
 }
